@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fdfbf7;
+  --color-gold: #d4af37;
+  --color-sage: #8a9a5b;
+  --color-sage-dark: #4a5d23;
+
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  body {
+    /* Using utilities directly or via apply. In v4 apply works if utilities exist. */
+    @apply bg-cream text-gray-800 font-serif antialiased;
+  }
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
