@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import envelopeVideo from '../assets/Video_De_Sobre_Abriéndose.mp4';
+import envelopeVideo from '../assets/Video_De_Sobre_Abriendose.mp4';
 
 export default function Envelope({ onOpen }) {
     const [isVisible, setIsVisible] = useState(true);
