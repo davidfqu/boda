@@ -12,24 +12,24 @@ const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, lin
             transition={{ duration: 0.8, delay }}
             className="flex flex-col items-center justify-center w-full"
         >
+            <h3 className="text-[clamp(32px,5vw,46px)] md:text-5xl font-serif text-sage-dark italic tracking-wide mb-4 z-10">
+                {title}
+            </h3>
+
             <div
-                className="relative w-full max-w-lg flex items-center justify-center drop-shadow-xl"
-                style={{ aspectRatio: '1.2' }}
+                className="relative w-full flex items-center justify-center drop-shadow-xl"
+                style={{ aspectRatio: '1' }}
             >
                 {/* Rotated background image to act as the horizontal card base */}
                 <img
                     src={cardBackground}
                     alt="Fondo Tarjeta"
                     className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 object-fill"
-                    style={{ width: '90.90%', height: '110%' }} // 83.33% = 1/1.2, 120% = 1.2
+                    style={{ width: '100%', height: '100%' }} // adjusted for 1.4 ratio
                 />
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-10 z-10 w-full h-full">
-                    <h3 className="text-[clamp(28px,4vw,38px)] md:text-5xl font-serif text-sage-dark italic tracking-wide mb-[1%]">
-                        {title}
-                    </h3>
-
                     <div className="space-y-[3%] font-serif text-gray-700 opacity-90 mt-[1%]">
                         <p className="text-[clamp(14px,2.5vw,20px)] md:text-xl font-light tracking-widest uppercase">
                             {locationName}
@@ -62,7 +62,7 @@ const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, lin
 
 const Locations = () => {
     return (
-        <section className="py-16 px-6 bg-white overflow-hidden">
+        <section className="py-16 px-1 bg-white overflow-hidden">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
