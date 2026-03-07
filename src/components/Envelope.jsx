@@ -40,7 +40,7 @@ export default function Envelope({ onOpen }) {
                     <video
                         ref={videoRef}
                         src={`${envelopeVideo}#t=0.001`}
-                        className="w-full h-full object-cover scale-[1.08] cursor-pointer origin-center"
+                        className="w-full h-full object-cover scale-[1.17] cursor-pointer origin-center"
                         playsInline
                         preload="metadata"
                         onClick={handleVideoClick}
@@ -49,7 +49,7 @@ export default function Envelope({ onOpen }) {
 
                     {!isPlaying && (
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <p className="text-white/80 font-serif text-xl tracking-widest animate-pulse mt-122">
+                            <p className="text-white/80 font-serif text-xl tracking-widest animate-pulse mt-112">
                                 Haz click para abrir
                             </p>
                         </div>
