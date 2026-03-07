@@ -32,7 +32,7 @@ export default function Envelope({ onOpen }) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden"
+                    className="fixed inset-0 w-screen h-[100dvh] z-50 bg-black flex items-center justify-center overflow-hidden"
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
@@ -40,7 +40,7 @@ export default function Envelope({ onOpen }) {
                     <video
                         ref={videoRef}
                         src={`${envelopeVideo}#t=0.001`}
-                        className="w-full h-full object-cover cursor-pointer"
+                        className="w-full h-full object-cover scale-[1.08] cursor-pointer origin-center"
                         playsInline
                         preload="metadata"
                         onClick={handleVideoClick}
@@ -49,7 +49,7 @@ export default function Envelope({ onOpen }) {
 
                     {!isPlaying && (
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <p className="text-white/80 font-serif text-xl tracking-widest animate-pulse">
+                            <p className="text-white/80 font-serif text-xl tracking-widest animate-pulse mt-122">
                                 Haz click para abrir
                             </p>
                         </div>
