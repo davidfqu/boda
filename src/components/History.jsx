@@ -8,34 +8,34 @@ import angel from '../assets/angel.png';
 
 const History = () => {
     return (
-        <section className="relative w-full mx-auto py-20 px-6 flex flex-col items-center mb-32">
+        <section className="relative w-full mx-auto py-24 px-2 sm:px-4 flex flex-col items-center mb-36">
 
             {/* Brown Card Container */}
-            <div className="relative w-full drop-shadow-2xl flex flex-col items-center">
+            <div className="relative w-full drop-shadow-2xl flex flex-col items-center mt-4">
 
                 {/* Wax Seal Absolute top center */}
                 <img
                     src={selloCera}
                     alt="Sello de Cera"
-                    className="absolute -top-8 w-18 h-18 z-20 drop-shadow-xl"
+                    className="absolute -top-21 w-18 h-18 z-20 drop-shadow-xl"
                 />
 
                 {/* Background Brown Card Image */}
                 <img
                     src={tarjetaCafe}
                     alt="Tarjeta Cafe"
-                    className="w-full h-auto object-cover rounded-md"
+                    className="w-full h-auto object-cover rounded-md scale-[1.35] sm:scale-[1.35]"
                 />
 
                 {/* Content over Brown Card */}
-                <div className="absolute inset-0 flex flex-col items-center text-center p-8 md:p-12 text-[#e3dac9] font-serif mt-1">
+                <div className="absolute inset-0 flex flex-col items-center text-center p-8 pt-2 md:p-12 md:pt-2 text-[#e3dac9] font-serif -mt-4">
 
                     {/* Angel */}
-                    <img src={angel} alt="Angel" className="w-10 h-20 mb-2 opacity-90 object-contain" />
+                    <img src={angel} alt="Angel" className="w-12 h-22 opacity-90 object-contain" />
 
-                    <h2 style={{ fontFamily: "'Great Vibes', cursive, serif" }} className="text-2xl md:text-2xl mb-2">Nuestra Historia</h2>
+                    <h2 style={{ fontFamily: "'Great Vibes', cursive, serif" }} className="text-xl md:text-2xl mb-2">Nuestra Historia</h2>
 
-                    <div className="space-y-4 text-[10px] md:text-sm tracking-widest px-2 leading-relaxed opacity-90">
+                    <div className="space-y-3 sm:space-y-4 text-[11px] sm:text-[11px] md:text-sm tracking-widest px-1 sm:px-2 leading-tight sm:leading-relaxed opacity-90">
                         <p>
                             Nos conocimos cuando ninguno buscaba<br />nada y, aun así, nos encontramos todo.<br />
                             Crecimos de la mano: amistades,<br />proyectos, retos y sueños que se<br />volvieron uno. En cada estación,<br />elegimos volver a elegirnos.
@@ -53,7 +53,7 @@ const History = () => {
 
                 {/* Cream Card Container Absolute bottom overlapping */}
                 <div
-                    className="absolute -bottom-48 md:-bottom-40 w-[95%] md:w-[75%] z-10 drop-shadow-xl flex items-center justify-center"
+                    className="absolute -bottom-56 md:-bottom-48 w-[105%] md:w-[85%] z-10 drop-shadow-xl flex items-center justify-center"
                     style={{ aspectRatio: '1.4' }}
                 >
 
@@ -61,34 +61,34 @@ const History = () => {
                     <img
                         src={tarjetaCrema}
                         alt="Tarjeta Crema"
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 object-fill"
-                        style={{ width: '71.42%', height: '85%' }}
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 scale-[1.3] sm:scale-[1.4] object-fill"
+                        style={{ width: '60%', height: '70%' }}
                     />
 
                     {/* Content over Cream Card */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:p-6 w-full h-full text-[#4a3b32] font-serif uppercase tracking-[0.2em] text-[10px] sm:text-xs z-10">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2 sm:p-4 md:p-6 w-full h-full text-[#4a3b32] font-serif uppercase tracking-[0.2em] text-[10px] sm:text-[12px] md:text- ss z-10">
 
-                        <div className="space-y-2 sm:space-y-4">
+                        <div className="space-y-2 sm:space-y-4 mt-3">
                             <div>
-                                <p>5:00 PM</p>
+                                <p>3:00 PM</p>
                                 <p>CEREMONIA RELIGIOSA</p>
                                 <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
                             </div>
 
                             <div>
-                                <p>6:30 PM</p>
-                                <p>ROMPEHIELOS</p>
+                                <p>5:00 PM</p>
+                                <p>COCTEL</p>
                                 <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
                             </div>
 
                             <div>
-                                <p>7:30 PM</p>
+                                <p>6:00 PM</p>
                                 <p>ENTRADA DE NOVIOS</p>
                                 <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
                             </div>
 
                             <div>
-                                <p>9:00 PM</p>
+                                <p>7:00 PM</p>
                                 <p>CENA</p>
                             </div>
                         </div>
