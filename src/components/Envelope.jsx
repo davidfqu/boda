@@ -39,9 +39,10 @@ export default function Envelope({ onOpen }) {
                 >
                     <video
                         ref={videoRef}
-                        src={envelopeVideo}
+                        src={`${envelopeVideo}#t=0.001`}
                         className="w-full h-full object-cover cursor-pointer"
                         playsInline
+                        preload="metadata"
                         onClick={handleVideoClick}
                         muted // Muted needed for potential autoplay policies, though we are clicking.
                     />
