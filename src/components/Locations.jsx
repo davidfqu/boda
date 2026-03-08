@@ -12,7 +12,7 @@ const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, lin
             transition={{ duration: 0.8, delay }}
             className="flex flex-col items-center justify-center w-full"
         >
-            <h3 className="text-[clamp(32px,5vw,46px)] md:text-5xl font-serif text-sage-dark italic tracking-wide mb-4 z-10">
+            <h3 className="text-[clamp(32px,5vw,46px)] md:text-5xl font-serif text-sage-dark italic tracking-wide -mb-4 z-10">
                 {title}
             </h3>
 
@@ -24,7 +24,7 @@ const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, lin
                 <img
                     src={cardBackground}
                     alt="Fondo Tarjeta"
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 object-fill"
+                    className="absolute top-1/2 left-[52%] transform -translate-x-1/2 -translate-y-1/2 -rotate-90 object-fill"
                     style={{ width: '100%', height: '100%' }} // adjusted for 1.4 ratio
                 />
 
@@ -62,7 +62,7 @@ const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, lin
 
 const Locations = () => {
     return (
-        <section className="py-16 px-1 bg-white overflow-hidden">
+        <section className="py-8 px-1 bg-white overflow-hidden">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -71,8 +71,6 @@ const Locations = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-4xl md:text-5xl font-serif text-sage-dark mb-4">Detalles del Día</h2>
-                    <p className="text-gray-500 italic">Todo lo que necesitas saber para acompañarnos</p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 md:gap-16 max-w-5xl mx-auto">

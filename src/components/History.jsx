@@ -17,7 +17,7 @@ const History = () => {
                 <img
                     src={selloCera}
                     alt="Sello de Cera"
-                    className="absolute -top-21 w-18 h-18 z-20 drop-shadow-xl"
+                    className="absolute -top-24 w-18 h-18 z-20 drop-shadow-xl"
                 />
 
                 {/* Background Brown Card Image */}

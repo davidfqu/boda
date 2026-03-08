@@ -85,11 +85,11 @@ function App() {
 
           <DressCode />
 
-          <FAQ />
-
           <Gifts />
 
           <RSVP />
+
+          <FAQ />
 
           <footer className="text-center py-10 text-gray-400 text-sm font-serif">
             <p>David & Lia • 2026</p>

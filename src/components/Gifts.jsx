@@ -28,10 +28,10 @@ export default function Gifts() {
             </div>
 
             {/* Container for the composition to keep them relative to each other */}
-            <div className="relative w-full max-w-[320px] mx-auto ml-30 md:ml-32 mt-10">
+            <div className="relative w-full max-w-[320px] mx-auto ml-10 md:ml-12 mt-10">
 
                 {/* Left Photo (Absolute positioning behind the card, top-left) */}
-                <div className="absolute z-0 -left-26 md:-left-26 -top-32 transform -rotate-6 w-55 md:w-48 shadow-lg p-2 bg-[#fdfbf7]">
+                <div className="absolute z-0 -left-8 -top-32 transform -rotate-6 w-55 md:w-48 shadow-lg p-2 bg-[#fdfbf7]">
                     {/* Placeholder image that simulates printed photography */}
                     <div className="relative w-full aspect-square bg-gray-200 overflow-hidden">
                         <img
