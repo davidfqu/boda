@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Envelope from './components/Envelope';
 import RSVP from './components/RSVP';
 import Countdown from './components/Countdown';
+import CountdownSecondary from './components/CountdownSecondary';
 import Locations from './components/Locations';
 import History from './components/History';
 import DressCode from './components/DressCode';
@@ -81,6 +82,8 @@ function App() {
 
           <History />
 
+          <CountdownSecondary />
+
           <Locations />
 
           <DressCode />
@@ -88,6 +91,8 @@ function App() {
           <Gifts />
 
           <RSVP />
+
+
 
           <FAQ />
 

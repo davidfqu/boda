@@ -66,25 +66,25 @@ const History = () => {
                     />
 
                     {/* Content over Cream Card */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2 sm:p-4 md:p-6 w-full h-full text-[#4a3b32] font-serif uppercase tracking-[0.2em] text-[10px] sm:text-[12px] md:text- ss z-10">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2 sm:p-4 md:p-6 w-full h-full text-[#4a3b32] font-mono uppercase tracking-[0.15em] text-[9px] sm:text-[11px] md:text-xs font-bold z-10 leading-tight">
 
-                        <div className="space-y-2 sm:space-y-4 mt-3">
+                        <div className="space-y-2 sm:space-y-2 mt-3">
                             <div>
                                 <p>3:00 PM</p>
                                 <p>CEREMONIA RELIGIOSA</p>
-                                <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
+                                <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
                             </div>
 
                             <div>
                                 <p>5:00 PM</p>
                                 <p>COCTEL</p>
-                                <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
+                                <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
                             </div>
 
                             <div>
                                 <p>6:00 PM</p>
                                 <p>ENTRADA DE NOVIOS</p>
-                                <div className="w-12 h-[1px] bg-[#4a3b32] mx-auto opacity-30 my-1 md:my-2 hidden md:block"></div>
+                                <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
                             </div>
 
                             <div>
