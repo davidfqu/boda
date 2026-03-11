@@ -24,7 +24,7 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="min-h-screen pb-20 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
+          className="min-h-screen pb-20 overflow-x-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
         >
           {/* Hero Section - Full Screen Image */}
           <header className="h-screen relative overflow-hidden">

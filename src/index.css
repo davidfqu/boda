@@ -10,9 +10,10 @@
 }
 
 @layer base {
+  html,
   body {
     /* Using utilities directly or via apply. In v4 apply works if utilities exist. */
-    @apply bg-cream text-gray-800 font-serif antialiased;
+    @apply bg-cream text-gray-800 font-serif antialiased overflow-x-hidden;
   }
 }
 
