@@ -7,7 +7,7 @@ const QAItem = ({ question, answer, isOpen, onClick }) => {
         <div className="border border-stone-200 rounded-lg overflow-hidden bg-white/80 shadow-sm transition-all duration-300 hover:shadow-md">
             <button
                 onClick={onClick}
-                className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none bg-inherit"
+                className="w-full px-6 py-2 flex items-center justify-between text-left focus:outline-none bg-inherit"
             >
                 <span className="text-xl text-stone-800 font-serif font-medium pr-8">{question}</span>
                 {isOpen ? (
@@ -70,7 +70,7 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="py-20 px-6 max-w-3xl mx-auto">
+        <section className="py-12 px-6 max-w-3xl mx-auto">
             <div className="text-center mb-12">
                 <div className="flex justify-center mb-4">
                     <HelpCircle className="w-8 h-8 text-stone-600" strokeWidth={1.5} />

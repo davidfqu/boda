@@ -8,7 +8,7 @@ import angel from '../assets/angel.png';
 
 const History = () => {
     return (
-        <section className="relative w-full mx-auto py-24 px-2 sm:px-4 flex flex-col items-center mb-36">
+        <section className="relative w-full mx-auto py-24 px-2 sm:px-4 flex flex-col items-center mb-30">
 
             {/* Brown Card Container */}
             <div className="relative w-full drop-shadow-2xl flex flex-col items-center mt-4">
@@ -33,20 +33,32 @@ const History = () => {
                     {/* Angel */}
                     <img src={angel} alt="Angel" className="w-12 h-22 opacity-90 object-contain" />
 
-                    <h2 style={{ fontFamily: "'Great Vibes', cursive, serif" }} className="text-xl md:text-2xl mb-2">Nuestra Historia</h2>
+                    <h2 style={{ fontFamily: "'Great Vibes', cursive, serif" }} className="text-xl md:text-2xl mb-2">Queridos Invitados</h2>
 
                     <div className="space-y-3 sm:space-y-4 text-[11px] sm:text-[11px] md:text-sm tracking-widest px-1 sm:px-2 leading-tight sm:leading-relaxed opacity-90">
                         <p>
-                            Nos conocimos cuando ninguno buscaba<br />nada y, aun así, nos encontramos todo.<br />
-                            Crecimos de la mano: amistades,<br />proyectos, retos y sueños que se<br />volvieron uno. En cada estación,<br />elegimos volver a elegirnos.
-                        </p>
-                        <p>
-                            Ahora queremos celebrar con ustedes el<br />inicio de nuestra nueva aventura.<br />
-                            Gracias por su apoyo, por las historias<br />compartidas y por los buenos deseos.<br />
-                            Los esperamos para brindar, bailar y<br />decir juntos: ¡sí, aceptamos!
+                            Han sido parte fundamental de <br />
+                            nuestras vidas y de nuestra historia. <br />
+                            Hoy queremos celebrar no solo nuestro <br />
+                            amor, sino también la familia que <br />
+                            estamos por comenzar, y nos llena de <br />
+                            alegría saber que siguen siendo parte <br />
+                            de este camino. <br />
+
+                            Cada uno de ustedes ha influido en <br />
+                            quienes somos y en lo que aspiramos <br />
+                            a ser, por lo que por lo que su <br />
+                            presencia en  este día tan <br />
+                            especial significa mucho <br />
+                            para nosotros. <br />
+
+                            Gracias por acompañarnos y por <br />
+                            ser parte de este momento que <br />
+                            recordaremos toda la vida. <br />
+
                         </p>
                         <p className="mt-6">
-                            —David y Lia.
+                            —Lia y David.
                         </p>
                     </div>
                 </div>
@@ -74,19 +86,16 @@ const History = () => {
                                 <p>CEREMONIA RELIGIOSA</p>
                                 <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
                             </div>
-
+                            <div>
+                                <p>4:30 PM</p>
+                                <p>CEREMONIA CIVIL</p>
+                                <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
+                            </div>
                             <div>
                                 <p>5:00 PM</p>
                                 <p>COCTEL</p>
                                 <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
                             </div>
-
-                            <div>
-                                <p>6:00 PM</p>
-                                <p>ENTRADA DE NOVIOS</p>
-                                <div className="w-20 sm:w-28 h-[1px] bg-[#4a3b32] mx-auto mt-1 sm:mt-1.5 opacity-80"></div>
-                            </div>
-
                             <div>
                                 <p>7:00 PM</p>
                                 <p>CENA</p>

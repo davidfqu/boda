@@ -4,6 +4,7 @@ import tarjetaCafe from '../assets/tarjeta-cafe-sin-relieve.png';
 import monoCrema from '../assets/mono-crema-horizontal.png';
 import tarjetaHueso from '../assets/tarjeta-hueso-sin-relieve.png';
 import floresDibujo from '../assets/flores-dibujo.png';
+import regalosFoto from '../assets/d y l - regalos.jpg';
 
 export default function Gifts() {
     const [copiedId, setCopiedId] = useState(null);
@@ -15,7 +16,7 @@ export default function Gifts() {
     };
 
     return (
-        <section className="py-20 px-4 w-full max-w-lg mx-auto flex flex-col items-center justify-center relative min-h-[600px] overflow-hidden">
+        <section className="py-12 px-4 w-full max-w-lg mx-auto flex flex-col items-center justify-center relative min-h-[600px] overflow-hidden">
 
             {/* Introductory Text and Icon */}
             <div className="flex flex-col items-center text-center mb-32 px-6 animate-fade-in text-[#4a3b32]">
@@ -32,12 +33,11 @@ export default function Gifts() {
 
                 {/* Left Photo (Absolute positioning behind the card, top-left) */}
                 <div className="absolute z-0 -left-8 -top-32 transform -rotate-6 w-55 md:w-48 shadow-lg p-2 bg-[#fdfbf7]">
-                    {/* Placeholder image that simulates printed photography */}
                     <div className="relative w-full aspect-square bg-gray-200 overflow-hidden">
                         <img
-                            src={tarjetaHueso}
-                            alt="Photography Placeholder"
-                            className="w-full h-full object-cover grayscale"
+                            src={regalosFoto}
+                            alt="Regalos"
+                            className="w-full h-full object-cover"
                         />
                     </div>
                 </div>
@@ -61,7 +61,7 @@ export default function Gifts() {
 
                         <div className="space-y-6 w-full font-serif text-center flex flex-col items-center tracking-widest">
                             {/* Department Store Section */}
-                            <div className="flex flex-col items-center">
+                            <div className="flex flex-col items-center" style={{ display: 'none' }}>
                                 <button className="border border-[#faecd1] rounded-full px-4 mt-2 py-1.5 text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#faecd1] hover:text-[#4a3b32] transition-colors duration-300">
                                     Amazon →
                                 </button>

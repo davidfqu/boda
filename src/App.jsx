@@ -10,7 +10,7 @@ import DressCode from './components/DressCode';
 import FAQ from './components/FAQ';
 import Gifts from './components/Gifts';
 import { Calendar, MapPin, Heart } from 'lucide-react';
-import heroImage from './assets/portada-lia-david-principal.png';
+import heroImage from './assets/portada-lia-david-principal.jpg';
 
 function App() {
   const [contentVisible, setContentVisible] = useState(false);
@@ -24,7 +24,7 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="min-h-screen pb-20 overflow-x-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
+          className="min-h-screen pb-6 overflow-x-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
         >
           {/* Hero Section - Full Screen Image */}
           <header className="h-screen relative overflow-hidden">
@@ -53,7 +53,7 @@ function App() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="font-semibold text-6xl md:text-8xl font-serif text-white mb-4 drop-shadow-2xl"
               >
-                David <span className="text-4xl align-middle mx-2">&</span> Lia
+                Lia <span className="text-4xl align-middle mx-2">&</span> David
               </motion.h1>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
@@ -77,9 +77,6 @@ function App() {
             </div>
           </header>
 
-          {/* Details / Story (Placeholder) */}
-          <Countdown />
-
           <History />
 
           <CountdownSecondary />
@@ -92,11 +89,9 @@ function App() {
 
           <RSVP />
 
-
-
           <FAQ />
 
-          <footer className="text-center py-10 text-gray-400 text-sm font-serif">
+          <footer className="text-center py-0 text-gray-400 text-sm font-serif">
             <p>David & Lia • 2026</p>
           </footer>
         </motion.div>

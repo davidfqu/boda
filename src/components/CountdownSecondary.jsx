@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import bgImage from '../assets/count-down-david-lia.jpeg';
+import bgImage from '../assets/david-lia-save-1304.jpg';
 
 const CountdownSecondary = () => {
     const calculateTimeLeft = () => {
@@ -29,7 +29,7 @@ const CountdownSecondary = () => {
     });
 
     return (
-        <section className="py-4 md:py-12 px-4 flex justify-center font-serif">
+        <section className="py-2 md:py-12 px-4 flex justify-center font-serif">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}

@@ -5,10 +5,12 @@ import parejaDibujo from '../assets/pareja-dibujo.png';
 import tarjetaAdultos from '../assets/tarjeta-ovalada-verde-gris.png';
 import angelDibujo from '../assets/angel-dibujo.png';
 import selloCera from '../assets/sello-cera-crema.png';
+import vestimenta1 from '../assets/d y  l - vestimenta-1.jpg';
+import vestimenta2 from '../assets/d y l - vestimenta-2.jpg';
 
 const DressCode = () => {
     return (
-        <section className="w-full pt-16 pb-64 px-4 flex justify-center items-center bg-[#FDFCF8] overflow-hidden">
+        <section className="w-full pt-16 pb-42 px-4 flex justify-center items-center bg-[#FDFCF8] overflow-hidden">
             {/* 
         Container with fixed aspect ratio to maintain relative positions 
         Aspect ratio ~ 0.8 (e.g., 400x500) to match the vertical collage feel
@@ -24,8 +26,7 @@ const DressCode = () => {
                     className="absolute top-[0%] right-[0%] w-[45%] aspect-[3/4] bg-gray-200 shadow-md rotate-3 border-4 border-white flex items-center justify-center z-0"
                 >
                     <div className="w-full h-full bg-gray-300 flex items-center justify-center overflow-hidden">
-                        {/* Placeholder content */}
-                        <span className="text-[10px] text-gray-500 font-serif text-center px-1">Foto B&N</span>
+                        <img src={vestimenta1} alt="Vestimenta 1" className="w-full h-full object-cover" />
                     </div>
                 </motion.div>
 
@@ -69,11 +70,10 @@ const DressCode = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="absolute bottom-[0%] left-[0%] w-[45%] aspect-square bg-gray-200 shadow-md -rotate-2 border-4 border-white flex items-center justify-center z-0"
+                    className="absolute bottom-[-10%] left-[0%] w-[45%] aspect-square bg-gray-200 shadow-md -rotate-2 border-4 border-white flex items-center justify-center z-0"
                 >
                     <div className="w-full h-full bg-gray-300 flex items-center justify-center overflow-hidden">
-                        {/* Placeholder content */}
-                        <span className="text-[10px] text-gray-500 font-serif text-center px-1">Foto B&N</span>
+                        <img src={vestimenta2} alt="Vestimenta 2" className="w-full h-full object-cover" />
                     </div>
                 </motion.div>
 

@@ -1,15 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Datos de prueba temporales basados en la imagen
-const mockGuests = [
-    { id: 1, grupo: 1, nombre: 'David Quinonez', mensaje: '', contestada: 0, asistira: null },
-    { id: 2, grupo: 1, nombre: 'Lia Camacho', mensaje: '', contestada: 0, asistira: null },
-    { id: 3, grupo: 2, nombre: 'Barbara Uribe', mensaje: '', contestada: 0, asistira: null },
-    { id: 4, grupo: 2, nombre: 'Oscar Quinonez', mensaje: '', contestada: 0, asistira: null },
-    { id: 5, grupo: 2, nombre: 'Raul Quinonez', mensaje: '', contestada: 0, asistira: null },
-    { id: 6, grupo: 3, nombre: 'Raul Uribe', mensaje: '', contestada: 0, asistira: null },
-];
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function RSVP() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -19,8 +11,9 @@ export default function RSVP() {
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault();
         setError('');
         const trimmedQuery = searchQuery.trim().toLowerCase();
@@ -34,25 +27,39 @@ export default function RSVP() {
             return;
         }
 
-        const foundGuest = mockGuests.find(g => {
-            const guestName = g.nombre.toLowerCase();
-            return words.every(word => guestName.includes(word));
-        });
+        setLoading(true);
+        try {
+            const response = await fetch(API_URL);
+            const allGuests = await response.json();
 
-        if (foundGuest) {
-            setFoundGuestId(foundGuest.id);
-            const group = mockGuests.filter(g => g.grupo === foundGuest.grupo);
-            setGroupGuests(group);
-
-            const initialAttendance = {};
-            group.forEach(g => {
-                initialAttendance[g.id] = g.contestada === 1 ? (g.asistira === 1 ? 'yes' : g.asistira === 0 ? 'no' : null) : null;
+            const foundGuest = allGuests.find(g => {
+                const guestName = (g.nombre || '').toLowerCase();
+                return words.every(word => guestName.includes(word));
             });
-            setAttendance(initialAttendance);
-        } else {
-            setError('No se encontró al invitado. Por favor, asegúrate de escribir bien el nombre y apellido.');
-            setGroupGuests(null);
-            setFoundGuestId(null);
+
+            if (foundGuest) {
+                setFoundGuestId(foundGuest.id);
+                // Usamos == por si 'grupo' viene como texto o número
+                const group = allGuests.filter(g => g.grupo == foundGuest.grupo);
+                setGroupGuests(group);
+
+                const initialAttendance = {};
+                group.forEach(g => {
+                    initialAttendance[g.id] = (g.contestada == 1 || g.contestada === true) 
+                        ? (g.asistira == 1 || g.asistira === true ? 'yes' : g.asistira == 0 || g.asistira === false ? 'no' : null) 
+                        : null;
+                });
+                setAttendance(initialAttendance);
+            } else {
+                setError('No se encontró al invitado. Por favor, asegúrate de escribir bien el nombre y apellido.');
+                setGroupGuests(null);
+                setFoundGuestId(null);
+            }
+        } catch (err) {
+            setError('Hubo un error al buscar la invitación. Por favor intenta más tarde.');
+            console.error("Error fetching guests:", err);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -60,26 +67,61 @@ export default function RSVP() {
         setAttendance(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
-        const updatedGuests = groupGuests.map(g => {
-            const isAttending = attendance[g.id] === 'yes' ? 1 : attendance[g.id] === 'no' ? 0 : null;
+        const updates = [];
 
-            const mockGuest = mockGuests.find(mg => mg.id === g.id);
-            if (isAttending !== null && mockGuest.contestada !== 1) {
-                mockGuest.contestada = 1;
-                mockGuest.asistira = isAttending;
+        groupGuests.forEach(g => {
+            const currentAtt = attendance[g.id];
+            if (currentAtt && (g.contestada != 1 && g.contestada !== true)) {
+                const isAttending = currentAtt === 'yes' ? 1 : 0;
+                
+                const updateObj = {
+                    id: g.id,
+                    contestada: 1,
+                    asistira: isAttending
+                };
+
+                // Solo agregar mensaje si es la persona que buscó y no está vacío
                 if (g.id === foundGuestId && message.trim() !== '') {
-                    mockGuest.mensaje = message;
+                    updateObj.mensaje = message;
                 }
-            }
 
-            return mockGuest;
+                updates.push(updateObj);
+            }
         });
 
-        console.log('Form submitted:', { guests: updatedGuests });
-        setSubmitted(true);
+        if (updates.length === 0) {
+            setLoading(false);
+            setSubmitted(true);
+            return;
+        }
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify({ updates }),
+                // Usamos text/plain para evitar el preflight (CORS) de Google Apps Script
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8',
+                }
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+                setSubmitted(true);
+            } else {
+                setError('Hubo un error al enviar tu respuesta. Por favor intenta más tarde.');
+                console.error("API Error:", result);
+            }
+        } catch (err) {
+            setError('Hubo un error al conectar con el servidor. Por favor intenta más tarde.');
+            console.error("Error posting updates:", err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const resetSearch = () => {
@@ -131,16 +173,22 @@ export default function RSVP() {
                                 <input
                                     type="text"
                                     required
-                                    className="flex-1 bg-white border border-gray-300 focus:border-gold focus:ring-1 focus:ring-gold outline-none py-3 px-4 text-lg font-serif rounded-md transition-all"
+                                    className="flex-1 bg-white border border-gray-300 focus:border-gold focus:ring-1 focus:ring-gold outline-none py-3 px-4 text-lg font-serif rounded-md transition-all disabled:opacity-50"
                                     placeholder="Ej. Lia Camacho"
                                     value={searchQuery}
                                     onChange={e => setSearchQuery(e.target.value)}
+                                    disabled={loading}
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-sage-dark text-white px-8 py-3 font-serif text-sm tracking-widest hover:bg-opacity-90 transition-colors rounded-md sm:w-auto w-full"
+                                    disabled={loading}
+                                    className="bg-sage-dark text-white px-8 py-3 font-serif text-sm tracking-widest hover:bg-opacity-90 transition-colors rounded-md sm:w-auto w-full disabled:opacity-75 flex justify-center items-center h-[50px] min-w-[120px]"
                                 >
-                                    BUSCAR
+                                    {loading ? (
+                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                    ) : (
+                                        "BUSCAR"
+                                    )}
                                 </button>
                             </div>
                             {error && <p className="text-red-500 text-sm mt-4 font-serif text-center">{error}</p>}
@@ -157,10 +205,12 @@ export default function RSVP() {
                     >
                         <div className="flex justify-between items-center mb-6 px-2">
                             <h3 className="text-xl font-serif text-gray-700">Invitaciones de tu grupo</h3>
-                            <button type="button" onClick={resetSearch} className="text-sm text-sage-dark underline font-serif hover:text-gold transition-colors">
+                            <button type="button" onClick={resetSearch} disabled={loading} className="text-sm text-sage-dark underline font-serif hover:text-gold transition-colors disabled:opacity-50">
                                 Buscar otro nombre
                             </button>
                         </div>
+
+                        {error && <p className="text-red-500 text-sm mb-4 font-serif text-center">{error}</p>}
 
                         <div className="space-y-4">
                             {groupGuests.map((guest, index) => (
@@ -173,27 +223,27 @@ export default function RSVP() {
                                 >
                                     <h3 className="text-2xl font-serif text-sage-dark mb-4 capitalize">
                                         {guest.nombre}
-                                        {guest.contestada === 1 && <span className="text-sm text-gray-400 ml-3 italic lowercase">(Ya contestada)</span>}
+                                        {(guest.contestada == 1 || guest.contestada === true) && <span className="text-sm text-gray-400 ml-3 italic lowercase">(Ya contestada)</span>}
                                     </h3>
                                     <div className="flex flex-wrap gap-4">
-                                        <label className={`flex flex-1 items-center gap-3 px-5 py-3 rounded-lg border transition-all ${attendance[guest.id] === 'yes' ? 'border-gold bg-gold/5' : 'border-gray-200 bg-gray-50/50'} ${guest.contestada === 1 ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50'}`}>
+                                        <label className={`flex flex-1 items-center gap-3 px-5 py-3 rounded-lg border transition-all ${attendance[guest.id] === 'yes' ? 'border-gold bg-gold/5' : 'border-gray-200 bg-gray-50/50'} ${(guest.contestada == 1 || guest.contestada === true) || loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50'}`}>
                                             <input
                                                 type="radio"
                                                 name={`attendance-${guest.id}`}
                                                 value="yes"
-                                                disabled={guest.contestada === 1}
+                                                disabled={(guest.contestada == 1 || guest.contestada === true) || loading}
                                                 checked={attendance[guest.id] === 'yes'}
                                                 onChange={() => handleAttendanceChange(guest.id, 'yes')}
                                                 className="accent-gold w-4 h-4"
                                             />
                                             <span className="font-serif text-gray-800">Sí, asistiré</span>
                                         </label>
-                                        <label className={`flex flex-1 items-center gap-3 px-5 py-3 rounded-lg border transition-all ${attendance[guest.id] === 'no' ? 'border-sage-dark bg-sage-dark/5' : 'border-gray-200 bg-gray-50/50'} ${guest.contestada === 1 ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50'}`}>
+                                        <label className={`flex flex-1 items-center gap-3 px-5 py-3 rounded-lg border transition-all ${attendance[guest.id] === 'no' ? 'border-sage-dark bg-sage-dark/5' : 'border-gray-200 bg-gray-50/50'} ${(guest.contestada == 1 || guest.contestada === true) || loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50'}`}>
                                             <input
                                                 type="radio"
                                                 name={`attendance-${guest.id}`}
                                                 value="no"
-                                                disabled={guest.contestada === 1}
+                                                disabled={(guest.contestada == 1 || guest.contestada === true) || loading}
                                                 checked={attendance[guest.id] === 'no'}
                                                 onChange={() => handleAttendanceChange(guest.id, 'no')}
                                                 className="accent-sage-dark w-4 h-4"
@@ -211,13 +261,14 @@ export default function RSVP() {
                             transition={{ delay: groupGuests.length * 0.1 }}
                             className="bg-white/60 border border-gray-200 rounded-xl p-6 mt-8"
                         >
-                            <label className="block text-sm font-serif uppercase tracking-wider text-sage-dark mb-3">Mensaje para nosotros nosotros (Opcional)</label>
+                            <label className="block text-sm font-serif uppercase tracking-wider text-sage-dark mb-3">Mensaje para nosotros (Opcional)</label>
                             <textarea
-                                className="w-full bg-white border border-gray-300 focus:border-gold outline-none p-4 text-lg font-serif resize-none rounded-lg focus:ring-1 focus:ring-gold transition-all"
+                                className="w-full bg-white border border-gray-300 focus:border-gold outline-none p-4 text-lg font-serif resize-none rounded-lg focus:ring-1 focus:ring-gold transition-all disabled:opacity-50"
                                 rows={3}
                                 placeholder="Déjanos un mensaje, deseos o algún comentario..."
                                 value={message}
                                 onChange={e => setMessage(e.target.value)}
+                                disabled={loading}
                             />
                         </motion.div>
 
@@ -226,9 +277,14 @@ export default function RSVP() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: (groupGuests.length * 0.1) + 0.1 }}
                             type="submit"
-                            className="w-full bg-sage-dark text-white py-4 rounded-lg font-serif text-lg tracking-widest hover:bg-opacity-90 hover:shadow-lg transition-all mt-6 uppercase"
+                            disabled={loading}
+                            className="w-full bg-sage-dark text-white py-4 rounded-lg font-serif text-lg tracking-widest hover:bg-opacity-90 hover:shadow-lg transition-all mt-6 uppercase disabled:opacity-75 flex justify-center items-center h-[60px]"
                         >
-                            Enviar Confirmación
+                            {loading ? (
+                                <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            ) : (
+                                "Enviar Confirmación"
+                            )}
                         </motion.button>
                     </motion.form>
                 )}
