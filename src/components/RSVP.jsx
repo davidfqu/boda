@@ -45,8 +45,8 @@ export default function RSVP() {
 
                 const initialAttendance = {};
                 group.forEach(g => {
-                    initialAttendance[g.id] = (g.contestada == 1 || g.contestada === true) 
-                        ? (g.asistira == 1 || g.asistira === true ? 'yes' : g.asistira == 0 || g.asistira === false ? 'no' : null) 
+                    initialAttendance[g.id] = (g.contestada == 1 || g.contestada === true)
+                        ? (g.asistira == 1 || g.asistira === true ? 'yes' : g.asistira == 0 || g.asistira === false ? 'no' : null)
                         : null;
                 });
                 setAttendance(initialAttendance);
@@ -77,7 +77,7 @@ export default function RSVP() {
             const currentAtt = attendance[g.id];
             if (currentAtt && (g.contestada != 1 && g.contestada !== true)) {
                 const isAttending = currentAtt === 'yes' ? 1 : 0;
-                
+
                 const updateObj = {
                     id: g.id,
                     contestada: 1,
@@ -167,7 +167,7 @@ export default function RSVP() {
                     >
                         <div>
                             <label className="block text-sm font-serif uppercase tracking-wider text-gray-600 mb-4 text-center">
-                                Ingresa tu nombre completo para buscar tu invitación
+                                Ingresa tu nombre y apellido para buscar tu invitación
                             </label>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <input
