@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
-import tarjetaCafe from '../assets/tarjeta-cafe-sin-relieve.png';
-import monoCrema from '../assets/mono-crema-horizontal.png';
-import tarjetaHueso from '../assets/tarjeta-hueso-sin-relieve.png';
-import floresDibujo from '../assets/flores-dibujo.png';
-import regalosFoto from '../assets/d y l - regalos.jpg';
+import tarjetaCafe from '../assets/tarjeta-cafe-sin-relieve.webp';
+import monoCrema from '../assets/mono-crema-horizontal.webp';
+import tarjetaHueso from '../assets/tarjeta-hueso-sin-relieve.webp';
+import floresDibujo from '../assets/flores-dibujo.webp';
+import regalosFoto from '../assets/d y l - regalos.webp';
 
 export default function Gifts() {
     const [copiedId, setCopiedId] = useState(null);

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import cardBackground from '../assets/tarjeta-crema-con-relieve-en-esquinas.png';
-import iglesiaDibujo from '../assets/iglesia-dibujo-removebg-preview.png';
-import ranchoDibujo from '../assets/rancho-l86-dibujo-removebg-preview.png';
+import cardBackground from '../assets/tarjeta-crema-con-relieve-en-esquinas.webp';
+import iglesiaDibujo from '../assets/iglesia-dibujo-removebg-preview.webp';
+import ranchoDibujo from '../assets/rancho-l86-dibujo-removebg-preview.webp';
 
 const LocationCard = ({ title, iconImage, time, locationName, mapUrl, image, link, delay }) => {
     return (

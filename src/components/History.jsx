@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import selloCera from '../assets/sello-cera-crema.png';
-import tarjetaCafe from '../assets/tarjeta-cafe-con-relieve.png';
-import tarjetaCrema from '../assets/tarjeta-crema-con-relieve-circular.png';
-import angel from '../assets/angel.png';
+import selloCera from '../assets/sello-cera-crema.webp';
+import tarjetaCafe from '../assets/tarjeta-cafe-con-relieve.webp';
+import tarjetaCrema from '../assets/tarjeta-crema-con-relieve-circular.webp';
+import angel from '../assets/angel.webp';
 
 const History = () => {
     return (

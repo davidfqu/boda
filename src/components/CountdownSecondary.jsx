@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import bgImage from '../assets/david-lia-save-1304.jpg';
+import bgImage from '../assets/david-lia-save-1304.webp';
 
 const CountdownSecondary = () => {
     const calculateTimeLeft = () => {

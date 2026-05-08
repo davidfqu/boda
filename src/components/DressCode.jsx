@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import tarjetaDressCode from '../assets/tarjeta-crema-con-relieve-circular.png';
-import parejaDibujo from '../assets/pareja-dibujo.png';
-import tarjetaAdultos from '../assets/tarjeta-ovalada-verde-gris.png';
-import angelDibujo from '../assets/angel-dibujo.png';
-import selloCera from '../assets/sello-cera-crema.png';
-import vestimenta1 from '../assets/d y  l - vestimenta-1.jpg';
-import vestimenta2 from '../assets/d y l - vestimenta-2.jpg';
+import tarjetaDressCode from '../assets/tarjeta-crema-con-relieve-circular.webp';
+import parejaDibujo from '../assets/pareja-dibujo.webp';
+import tarjetaAdultos from '../assets/tarjeta-ovalada-verde-gris.webp';
+import angelDibujo from '../assets/angel-dibujo.webp';
+import selloCera from '../assets/sello-cera-crema.webp';
+import vestimenta1 from '../assets/d y  l - vestimenta-1.webp';
+import vestimenta2 from '../assets/d y l - vestimenta-2.webp';
 
 const DressCode = () => {
     return (

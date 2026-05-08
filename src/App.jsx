@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Envelope from './components/Envelope';
-import RSVP from './components/RSVP';
-import Countdown from './components/Countdown';
-import CountdownSecondary from './components/CountdownSecondary';
-import Locations from './components/Locations';
-import History from './components/History';
-import DressCode from './components/DressCode';
-import FAQ from './components/FAQ';
-import Gifts from './components/Gifts';
-import { Calendar, MapPin, Heart } from 'lucide-react';
-import heroImage from './assets/portada-lia-david-principal.jpg';
+import { Heart } from 'lucide-react';
+const heroImage = '/portada-lia-david-principal.webp';
+
+const History = lazy(() => import('./components/History'));
+const CountdownSecondary = lazy(() => import('./components/CountdownSecondary'));
+const Locations = lazy(() => import('./components/Locations'));
+const DressCode = lazy(() => import('./components/DressCode'));
+const Gifts = lazy(() => import('./components/Gifts'));
+const RSVP = lazy(() => import('./components/RSVP'));
+const FAQ = lazy(() => import('./components/FAQ'));
 
 function App() {
   const [contentVisible, setContentVisible] = useState(false);
@@ -24,7 +24,7 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="min-h-screen pb-6 overflow-x-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
+          className="min-h-screen pb-6 overflow-x-hidden bg-[url('/cream-paper.png')]"
         >
           {/* Hero Section - Full Screen Image */}
           <header className="h-screen relative overflow-hidden">
@@ -77,19 +77,15 @@ function App() {
             </div>
           </header>
 
-          <History />
-
-          <CountdownSecondary />
-
-          <Locations />
-
-          <DressCode />
-
-          <Gifts />
-
-          <RSVP />
-
-          <FAQ />
+          <Suspense fallback={null}>
+            <History />
+            <CountdownSecondary />
+            <Locations />
+            <DressCode />
+            <Gifts />
+            <RSVP />
+            <FAQ />
+          </Suspense>
 
           <footer className="text-center py-0 text-gray-400 text-sm font-serif">
             <p>David & Lia • 2026</p>
