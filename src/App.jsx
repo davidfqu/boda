@@ -88,7 +88,7 @@ function App() {
           </Suspense>
 
           <footer className="text-center py-0 text-gray-400 text-sm font-serif">
-            <p>David & Lia • 2026</p>
+            <p>Lia & David • 2026</p>
           </footer>
         </motion.div>
       )}
