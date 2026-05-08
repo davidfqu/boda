@@ -53,7 +53,7 @@ const FAQ = () => {
     const faqs = [
         {
             question: "¿Puedo llevar acompañante?",
-            answer: "Cada invitación incluye un +1. Por favor, indícalo en el formulario con su nombre y apellido. Si sois más de 1 o una familia, no hay problema, añadidlo en el formulario."
+            answer: "En la búsqueda de invitados están considerados todos los invitados con su nombre por grupo o pareja. Si tienes dudas, no dudes en consultarnos directamente."
         },
         {
             question: "¿Habrá parking disponible?",
@@ -61,11 +61,7 @@ const FAQ = () => {
         },
         {
             question: "¿Qué código de vestimenta debo seguir?",
-            answer: "El código de vestimenta es Formal. Les sugerimos traje para los caballeros y vestido largo o de cóctel para las damas."
-        },
-        {
-            question: "¿Puedo tomar fotos durante la ceremonia?",
-            answer: "Sí, pueden tomar fotos. Sin embargo, les pedimos respetar la solemnidad de la ceremonia religiosa y evitar obstruir la vista de los fotógrafos oficiales."
+            answer: "El código de vestimenta es Formal. Les sugerimos traje para los caballeros y vestido largo para las damas."
         }
     ];
 

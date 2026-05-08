@@ -52,7 +52,7 @@ export default function Gifts() {
                             style={{ backgroundImage: `url(${tarjetaCafe})` }}
                         />
 
-                        <h2 className="font-serif text-3xl md:text-4xl italic mb-0 mt-1 tracking-wider">Mesa de Regalos</h2>
+                        <h2 className="font-serif text-3xl md:text-4xl italic mb-0 mt-1 tracking-wider">Regalo</h2>
 
                         {/* The ribbon / bow */}
                         <div className="relative w-[121%] -mx-[7.5%] -mt-32 -mb-32 flex justify-center items-center pointer-events-none">
