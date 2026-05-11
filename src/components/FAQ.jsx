@@ -62,6 +62,10 @@ const FAQ = () => {
         {
             question: "¿Qué código de vestimenta debo seguir?",
             answer: "El código de vestimenta es Formal. Les sugerimos traje para los caballeros y vestido largo para las damas."
+        },
+        {
+            question: "¿Hasta que fecha tengo para confirmar mi asistencia?",
+            answer: "La fecha límite para confirmar tu asistencia es el 3 de agosto del 2026."
         }
     ];
 

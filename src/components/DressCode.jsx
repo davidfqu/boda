@@ -57,9 +57,14 @@ const DressCode = () => {
                             <p>Hombres: Traje</p>
                         </div>
 
-                        <button className="group text-[clamp(8px,2.5vw,11px)] uppercase tracking-widest border-b border-[#5A5A40] pb-0.5 hover:text-black hover:border-black transition-all">
+                        <a
+                            href="https://pin.it/6r9epkBIU"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group text-[clamp(8px,2.5vw,11px)] uppercase tracking-widest border-b border-[#5A5A40] pb-0.5 hover:text-black hover:border-black transition-all inline-block"
+                        >
                             Ver Ideas <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                        </button>
+                        </a>
                     </div>
                 </motion.div>
 

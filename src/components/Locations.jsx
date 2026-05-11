@@ -77,7 +77,7 @@ const Locations = () => {
                     <LocationCard
                         title="Ceremonia Religiosa"
                         iconImage={iglesiaDibujo}
-                        time="15:00 hrs"
+                        time="3:00 pm"
                         locationName="Parroquia De San Juan De Los Lagos"
                         image="https://images.unsplash.com/photo-1548625361-e87563c6c09d?q=80&w=2070&auto=format&fit=crop"
                         mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.318428236113!2d-116.6025!3d31.8545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDUxJzE2LjIiTiAxMTbCsDM2JzA5LjAiVw!5e0!3m2!1sen!2smx!4v1635789000000!5m2!1sen!2smx"
@@ -88,7 +88,7 @@ const Locations = () => {
                     <LocationCard
                         title="Recepción"
                         iconImage={ranchoDibujo}
-                        time="16:30"
+                        time="4:30 pm"
                         locationName="Rancho L86"
                         image="https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=2072&auto=format&fit=crop"
                         mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.0763967812297!2d-116.65757192358896!3d32.01257997399127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8926978478491%3A0x643694002621021!2sRancho%20L-86%2C%20Hotel%20y%20Eventos!5e0!3m2!1sen!2smx!4v1707435000000!5m2!1sen!2smx"
