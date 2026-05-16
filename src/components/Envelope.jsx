@@ -25,7 +25,7 @@ export default function Envelope({ onOpen }) {
         setTimeout(() => {
             setIsVisible(false);
             onOpen();
-        }, 3000); // 3 seconds delay
+        }, 2500); // 2.5 seconds delay
     };
 
     return (

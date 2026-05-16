@@ -44,6 +44,7 @@ function App() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="absolute top-0 font-semibold mt-32 text-white tracking-[0.2em] text-sm uppercase drop-shadow-lg"
+                style={{ fontSize: 16 }}
               >
                 Estás invitado a la boda de
               </motion.p>
@@ -51,7 +52,7 @@ function App() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="font-semibold text-6xl md:text-8xl font-serif text-white mb-4 drop-shadow-2xl"
+                className="font-semibold text-6xl md:text-8xl font-serif text-white mt-10 drop-shadow-2xl"
               >
                 Lia <span className="text-4xl align-middle mx-2">&</span> David
               </motion.h1>
@@ -61,7 +62,7 @@ function App() {
                 transition={{ delay: 1.2 }}
                 className="font-semibold absolute bottom-0 mb-24 flex flex-col md:flex-row gap-6 md:gap-12 text-white font-serif text-lg"
               >
-                <div className="flex items-center gap-2 drop-shadow-lg">
+                <div className="flex items-center gap-2 drop-shadow-lg" style={{ fontSize: 22 }}>
                   <span>3 de Octubre, 2026</span>
                 </div>
               </motion.div>
