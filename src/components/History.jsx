@@ -47,7 +47,7 @@ const History = () => {
 
                             Cada uno de ustedes ha influido en <br />
                             quienes somos y en lo que aspiramos <br />
-                            a ser, por lo que por lo que su <br />
+                            a ser, por lo que su <br />
                             presencia en  este día tan <br />
                             especial significa mucho <br />
                             para nosotros. <br />
