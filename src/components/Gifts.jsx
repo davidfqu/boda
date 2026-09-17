@@ -60,14 +60,17 @@ export default function Gifts() {
                         </div>
 
                         <div className="space-y-6 w-full font-serif text-center flex flex-col items-center tracking-widest">
-                            {/* Department Store Section */}
-                            <div className="flex flex-col items-center" style={{ display: 'none' }}>
-                                <button className="border border-[#faecd1] rounded-full px-4 mt-2 py-1.5 text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#faecd1] hover:text-[#4a3b32] transition-colors duration-300">
+                            {/* Amazon Wishlist */}
+                            <div className="flex flex-col items-center">
+                                <p className="uppercase text-[12px] md:text-xs font-medium mb-2">Lista de regalos</p>
+                                <a
+                                    href="https://www.amazon.com.mx/hz/wishlist/ls/2TOH2C4A4WCEZ?ref_=wl_share"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-[#faecd1] rounded-full px-4 py-1.5 text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#faecd1] hover:text-[#4a3b32] transition-colors duration-300"
+                                >
                                     Amazon →
-                                </button>
-                                <button className="border border-[#faecd1] rounded-full px-4 mt-2 py-1.5 text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#faecd1] hover:text-[#4a3b32] transition-colors duration-300">
-                                    Liverpool →
-                                </button>
+                                </a>
                             </div>
 
                             {/* Envelope Section */}
