@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import tornabodaInvitation from '../assets/tornaboda-invitation.webp';
 
 const QAItem = ({ question, answer, isOpen, onClick }) => {
     return (
@@ -71,6 +72,14 @@ const FAQ = () => {
 
     return (
         <section className="py-12 px-6 max-w-3xl mx-auto">
+            <div className="mb-12 overflow-hidden rounded-3xl shadow-md">
+                <img
+                    src={tornabodaInvitation}
+                    alt="Invitación a la tornaboda de Lia y David — domingo 24 de octubre, Rancho L86"
+                    className="w-full h-auto block"
+                />
+            </div>
+
             <div className="text-center mb-12">
                 <div className="flex justify-center mb-4">
                     <HelpCircle className="w-8 h-8 text-stone-600" strokeWidth={1.5} />
