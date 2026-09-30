@@ -138,7 +138,7 @@ export default function Gifts() {
                                         className="flex items-center justify-center gap-2 group cursor-pointer hover:opacity-100 transition-opacity w-full"
                                     >
                                         <span className="text-[9px] opacity-70 uppercase tracking-tighter">No. de cuenta:</span>
-                                        <span className="font-medium">1234578989</span>
+                                        <span className="font-medium">5470748015813029</span>
                                         {copiedId === 'cuenta' ? <Check size={10} /> : <Copy size={10} className="opacity-0 group-hover:opacity-50 transition-opacity" />}
                                     </button>
                                     <button
@@ -146,7 +146,7 @@ export default function Gifts() {
                                         className="flex items-center justify-center gap-2 group cursor-pointer hover:opacity-100 transition-opacity w-full"
                                     >
                                         <span className="text-[9px] opacity-70 uppercase tracking-tighter">CLABE:</span>
-                                        <span className="font-medium">09876543211234567</span>
+                                        <span className="font-medium">021975211451073149</span>
                                         {copiedId === 'clabe' ? <Check size={10} /> : <Copy size={10} className="opacity-0 group-hover:opacity-50 transition-opacity" />}
                                     </button>
                                 </div>
